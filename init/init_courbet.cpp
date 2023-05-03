@@ -92,6 +92,10 @@ void vendor_load_properties()
         property_override("vendor.usb.product_string", "Mi 11 Lite");
     }
 
+    // Set RisingOS Stuff
+    property_override("ro.rising.maintainer", "ygherna");
+    property_override("ro.rising.chipset", "Snapdragon 732G");
+
     // Set hardware revision
     property_override("ro.boot.hardware.revision", GetProperty("ro.boot.hwversion", "").c_str());
     // SafetyNet workaround
