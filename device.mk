@@ -143,8 +143,8 @@ PRODUCT_PACKAGES += \
     XiaomiParts
 
 # Dexpreopt
-PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUI
+#PRODUCT_DEXPREOPT_SPEED_APPS += \
+#    SystemUI
 
 # Display
 PRODUCT_PACKAGES += \
@@ -361,7 +361,7 @@ PRODUCT_PACKAGES += \
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay-derp
 
 PRODUCT_ENFORCE_RRO_TARGETS += *
 
@@ -462,10 +462,6 @@ PRODUCT_COPY_FILES += \
 # Touchscreen
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
-
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
 
 # Uevent
 PRODUCT_COPY_FILES += \

@@ -243,7 +243,7 @@
         <item>"/system/lib64/libhwui.so"</item>
         <item>"/apex/com.android.art/javalib/core-oj.jar"</item>
         <item>"/apex/com.android.art/javalib/core-libart.jar"</item>
-        <item>"/system_ext/priv-app/SystemUI/SystemUI.apk"</item>
+        <item>"/system_ext/priv-app/SystemUIGoogle/SystemUIGoogle.apk"</item>
         <item>"/system/bin/surfaceflinger"</item>
         <item>"/vendor/lib64/egl/libGLESv2_adreno.so"</item>
         <item>"/vendor/lib64/libgsl.so"</item>
@@ -825,19 +825,22 @@
         <item>0:2:15</item> <!-- ID0:Fingerprint:Strong -->
     </string-array>
 
+     <!-- Whether device has fingerprint on power button -->
+    <bool name="config_powerButtonFingerprint">true</bool>
+
     <!-- An array of arrays of side fingerprint sensor properties relative to each display.
          Note: this value is temporary and is expected to be queried directly
          from the HAL in the future. -->
     <array name="config_sfps_sensor_props" translatable="false">
-        <item>@array/config_sfps_sensor_props_0</item>
+         <item>@array/sfps_sensor_props</item>
     </array>
-
-    <array name="config_sfps_sensor_props_0" translatable="false">
-    <item></item> <!--item>displayId</item-->
-        <item></item> <!--item>sensorLocationX</item-->
-        <item>990</item> <!--item>sensorLocationY</item-->
-        <item>115</item> <!--item>sensorRadius</item-->
-    </array>
+    
+    <string-array name="sfps_sensor_props" translatable="false">
+        <item></item>     <!-- displayId -->
+        <item>1080</item> <!-- sensorLocationX -->
+        <item>960</item>  <!-- sensorLocationY -->
+        <item>200</item>  <!-- sensorRadius -->
+    </string-array>
 
     <!-- Indicates whether device has a power button fingerprint sensor. -->
     <bool name="config_is_powerbutton_fps" translatable="false">true</bool>
@@ -849,12 +852,15 @@
          Exempted from privacy indicators. -->
     <string name="config_systemTelephonyPackage" translatable="false">com.qualcomm.qti.cne</string>
 
-    <!-- Smartcharging -->
-    <bool name="config_supportSmartCharging">true</bool>
-    <string name="config_SmartChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/input_suspend</string>
-    <string name="config_SmartChargingSuspendValue" translatable="false">1</string>
-    <string name="config_SmartChargingResumeValue" translatable="false">0</string>
-
     <!-- Pocket Lock -->
     <bool name="config_pocketModeSupported">true</bool>
+
+    
+    <!-- The list of package IDs that are allowed to use aux cameras.
+         NOTE: If this list is empty then all apps will be able to use aux cameras. -->
+    <string-array name="config_cameraAuxPackageAllowList" translatable="false">
+        <item>org.codeaurora.snapcam</item>
+        <item>com.android.camera</item>
+	<item>org.derpfest.flash</item>
+        <item>org.derpfest.flash.dev</item>
 </resources>
